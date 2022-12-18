@@ -23,6 +23,7 @@ export default function Home() {
      <li><a href="">link 05</a></li>
      <li><a href="">link 06</a></li>
      <li><a href="">link 07</a></li>
+     <li><a href="">link 08</a></li>
     </ul>
    </div>
 
