@@ -35,4 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-git-training.txt
+src/components/navbar/git-training.txt
