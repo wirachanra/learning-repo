@@ -1,0 +1,63 @@
+//! ---------- contoh Variable di scss ----------
+//? jika ingin agar variable bisa diakses semua elemen maka harus simpan didalam root
+//? contoh variable dari CSS
+// :root {
+//   --primary-color: red;
+//   --seconday-color: blue;
+//   --background-color: lightblue;
+// }
+
+// .main {
+//   background-color: var(--background-color);
+//   h1 {
+//     color: var(--primary-color);
+//   }
+// }
+
+//? contoh variable dari scss
+//? keunikan dari variable sass itu 
+//? 1. variable dari - dan _ akan sama contoh $primary-color dan $primary_color akan sama
+//? 2. variable di sass punya ruang lingkup, tidak wajib di dalam root elemen, jadi ini merupakan variable global
+  $primary-color: red;
+  $seconday-color: blue;
+  $background-color: lightblue;
+
+.main {
+  background-color: $background-color;
+  h1 {
+    color: $primary-color;
+  }
+}
+//? 3. contoh jika variable hanya khusus untuk sebuah element atau tidak global
+// $seconday-color: blue;
+// $background-color: lightblue;
+// .main {
+//   $primary-color: red; //local variable
+//*   $primary-color: red; //tambah dibagian belakang red !global maka variable akan berubah menjadi variable global
+//   background-color: $primary-color;
+// }
+//* jadi si h1 tidak bisa mengakses primary color
+// h1 {
+//   color: $primary-color;
+// }
+
+//? contoh maping di dalam scss
+//? contoh ada sebuah alert
+// $alert-danger: red;
+// $alert-success: green;
+// $alert-warning: orange;
+// h1{
+//   color: $alert-warning;
+// }
+//? contoh diatas bisa di persingkat
+$alert: (
+  'danger': red,
+  'success': green,
+  'warning': orange,
+);
+
+h1{
+  // color: map-get($map: , $key: );
+  color: map-get($alert, 'success' );
+}
+

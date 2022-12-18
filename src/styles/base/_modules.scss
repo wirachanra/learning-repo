@@ -1,0 +1,53 @@
+//? @import dan @use - untuk @import model lama
+//? berhubungan dengan mixins.scss
+//? penggunaan @each untuk variable turunan
+//? kekurangan menggunakan @import dan tidak disarankan oleh sass nya sendiri
+//? untuk @use penggunaannya harus install dengan dart sass dan tidak terlalu global
+
+// @import 'mixins';
+
+//? cara pakainya karena dipakai berulang di header dan footer
+.header ul{
+  @include inline-list();
+  // jike ingin dibedakan maka bisa ditambah
+  li {
+    padding: 10px;
+    margin: 5px;
+    background-color: black;
+    a {
+      color: white;
+    }
+  }
+}
+
+// pindah ke flow control untuk for
+// .footer ul{
+//   @include inline-list();
+//   // jike ingin dibedakan maka bisa ditambah
+//   li {
+//     padding: 10px;
+//     margin: 5px;
+//     background-color: pink;
+//     a {
+//       color: white;
+//     }
+//   }
+// }
+
+.container {
+  //*kirim parameternya di dalam kurung include flex-box
+  @include flex-box(row-reverse, space-evenly );
+  // @include flex-box(row-reverse);
+  width: 600px;
+  height: 400px;
+  background-color: grey;
+
+  .box{
+    width: 60px;
+    height: 60px;
+    background-color: aqua;
+    text-align: center;
+    line-height: 60px;
+  }
+
+}

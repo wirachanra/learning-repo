@@ -1,0 +1,88 @@
+//! ---------- contoh Mixins di scss ----------
+
+//? contoh biasa
+// .header {
+//   ul, li{
+//     margin: 0;
+//     padding: 0 10px 0px 10px;
+//     list-style: none;
+//     display: inline-block;
+//   }
+// }
+// .footer {
+//   ul, li{
+//     margin: 0;
+//     padding: 0 10px 0px 10px;
+//     list-style: none;
+//     display: inline-block;
+//   }
+// }
+
+//? contoh dengan mixins
+//? @mixin itu seperti function dan inline-list nama function / nama mixins
+@mixin inline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+  }  
+}
+
+// //? cara pakainya karena dipakai berulang di header dan footer
+// .header ul{
+//   @include inline-list();
+//   // jike ingin dibedakan maka bisa ditambah
+//   li {
+//     padding: 10px;
+//     margin: 5px;
+//     background-color: black;
+//     a {
+//       color: white;
+//     }
+//   }
+// }
+
+// .footer ul{
+//   @include inline-list();
+//   // jike ingin dibedakan maka bisa ditambah
+//   li {
+//     padding: 10px;
+//     margin: 5px;
+//     background-color: pink;
+//     a {
+//       color: white;
+//     }
+//   }
+// }
+
+//? mixins bisa di kasih arguments bisa lebih dari 1 arguments
+//? default dari argument direction = row jadi jika @include flex-box() = row
+@mixin flex-box($direction: row, $space: center) {
+  display: flex;
+  justify-content: $space;
+  align-items: center;
+  //* urutan 1 2 3 untuk box nya
+  // flex-direction: row;
+  //* urutan 1 2 3 untuk box nya dibalik jadi 3 2 1
+  // flex-direction: row-reverse;
+  flex-direction: $direction;
+}
+
+// .container {
+//   //*kirim parameternya di dalam kurung include flex-box
+//   @include flex-box(row-reverse, space-evenly );
+//   // @include flex-box(row-reverse);
+//   width: 600px;
+//   height: 400px;
+//   background-color: grey;
+
+//   .box{
+//     width: 60px;
+//     height: 60px;
+//     background-color: aqua;
+//     text-align: center;
+//     line-height: 60px;
+//   }
+
+// }

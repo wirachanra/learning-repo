@@ -1,0 +1,9 @@
+//? agar bisa import data maka didepan di kasih @ dan file yang ingin diimport didepan namanya diberi underscore contoh _nasting.scss
+@import './base/global';
+
+// @import './base/nasting';
+// @import './base/variables';
+@import './base/mixins';
+@import './base/modules';
+@import './base/flowcontrol';
+

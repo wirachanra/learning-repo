@@ -1,0 +1,48 @@
+//? seperti pengkondisian ada @if, @else, @elsif
+// sama seperti if biasa
+
+
+//? contoh penggunaan @for atau perulangan di scss
+@import 'mixins';
+
+.footer ul{
+  @include inline-list();
+  // jike ingin dibedakan maka bisa ditambah
+  // li {
+  //   padding: 10px;
+  //   margin: 5px;
+  //   a {
+  //     color: white;
+  //   }
+  // }
+  // -- contoh perulangan dan lighten di scss digunakan untuk gradasi atau mengelola warna mengubah warna menjadi terang sebanyak berapa persen
+  $color-salmon: salmon;
+  @for $i from 1 to 6 {
+   li:nth-child(#{$i}){
+    background-color: lighten($color-salmon, $i * 4%);
+    padding: 10px;
+    margin: 5px;
+
+   }
+  }
+}
+
+//? @each untuk perulangan map
+$social-colors: (
+ main1: red,
+ main2: blue,
+ main3: green,
+ main4: pink,
+ main5: orange,
+);
+
+.social-link {
+ list-style: none;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ font-size: 2em;
+ @each $social, $color in $social-colors { //$social (key / variable) $color(value)
+  .#{$social} { //kenapa harus ada .# karena sesuai dengan sass sintaks
+   color: $color;
+  }
+ }
+}

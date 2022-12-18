@@ -1,0 +1,47 @@
+//! ---------- contoh nasting di scss ----------
+//? jadi di dalam main itu ada h1 dan p dan di dalam footer jg ada h1 dan p
+.main {
+ border: 1px solid black;
+ border-radius: 15px;
+ width: 500px;
+ padding: 10px;
+ margin: 10px;
+
+ // h1, p {
+ //  color:blue;
+ // } 
+
+//? penggunaan simbol & itu untuk parent selector contoh dibawah
+//? didalam container ada classname main dan yang sedang kita kerjakan adalah main kita bisa menambahkan
+//? menambahkan simbol & untuk menyatakan bahwa container ada diatas si main
+//? dibawah adalah contoh yang dimana didalam class main ada container sedangkan di index.tsx container lebih besar atau diluar main
+//? oleh karena itu datanya tidak akan berubah
+ // .container {
+ //   background-color: aquamarine;
+ // }
+ //? dibawah contoh menggunakan & atau parent selector
+ .container & {
+  background-color: aquamarine;
+ }
+
+ &:hover {
+  background-color: coral;
+ }
+
+//? dan keunggulan lain adalah dapat otomati menggenerate nama dari parentnya
+//? contoh parentnya adalah main dan dalam main ada main-heading tinggal ganti jadi &-heading
+//? hanya saja jika ingin di nasting tinggal tambahkan & &-heading
+ & &-header {
+  color: firebrick;
+ }
+//? bisa kita permudah dengan menggunakan koding interpolasi atau dipersingkat contoh dibawah
+ #{&}-paragraf {
+  color:blueviolet;
+ }
+
+}
+.footer {
+  h1, p {
+  color:red;
+ } 
+}
